@@ -35,7 +35,7 @@ def login_user(request):
             if user is not None:
                 login(request,user)
                 ## this is temporary
-                return HttpResponse("you are logged in")
+                return HttpResponseRedirect(reverse("App_Shop:home"))
     return render(request,"App_LOgin/login.html",{'form':form})
     
 @login_required
@@ -43,7 +43,7 @@ def logout_user(request):
     logout(request)
     messages.warning(request,"You are logged out")
     ## this is temporary
-    return HttpResponse("you are logged out")
+    return HttpResponseRedirect(reverse("App_Shop:home"))
 
 @login_required
 def user_profile(request):
