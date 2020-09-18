@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title_block %} Create Account {% endblock %}
+{% block body_block %}
+{% block css_block %}
+    <style>
+        .signup{
+            width: 400px;
+            border: 2px;
+            text-align: center;
+            font-family: 'Roboto Slab', serif;
+            background-color: whitesmoke;
+        }
+        
+    </style>
+
+{% endblock %}
+<div class="signup container">
+<div class="text-center border p-5">
+    <p class="h4 mb-4">Create Your Account</p>
+    
+    
+        
+        <form method="POST" >
+            {% csrf_token %}
+            {{form|crispy}}
+            <input type="submit" class="btn btn-success btn-sm" value="Login">
+        </form>
+    
+        <br>
+        </hr>
+            <p>Already have an Account? </p> <a href="{% url 'App_LOgin:signup' %}">Signup Here</a> 
+    
+    </div>
+</div>
+{% endblock %}
